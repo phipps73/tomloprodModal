@@ -17,6 +17,10 @@
 * `tm-effect`: If has this class shows fade effects on modal windows and scale effect on main container (*if exist*).
 * `tm-draggable`: Defines if the modal window can be dragged.
 * `tm-emptyOnClose`: When has this CSS class, the content of this element (*input or tag*) will be cleared.
+* `tm-trigger`: When an element has this CSS class, this element will be used for open the modal window indicated by his `data-tm-modal` attribute.
+
+
+
 
 
 Example of modal window:
@@ -89,7 +93,7 @@ TomloprodModal.start({
 
 <br>
 
-### Individual Config Parameters (*data attributes*)
+### Individual Config Parameters 1: *data attributes*
 ---
 
 * `data-tm-title`: Will replace the title of the element with `tm-title-text` class.
@@ -98,7 +102,7 @@ TomloprodModal.start({
 * `data-tm-textcolor`: Will change the text color by the indicated value for the modal window that has this data attribute. @example `#FFFFFF`
 * `data-tm-closetimer`: Will close the modal window when the milliseconds pass. @example `1000`
 
-Example of modal window with individual parameters:
+Example of modal window with individual data attributes:
 
 ````html
 <div 
@@ -124,10 +128,43 @@ Example of modal window with individual parameters:
 ````
 <br>
 
+
+### Individual Config Parameters 2: *params*
+---
+
+* `title`: Will replace the title of the element with the value of `title` param.
+* `content`: Will replace the content of the elementwith the value of `title` param.
+* `bgColor`: Will change the background color by the indicated value for the indicated modal window @example `#e74c3c`
+* `textColor`: Will change the text color by the indicated value for the indicated modal window. @example `#FFFFFF`
+* `closeTimer`: Will close the modal window when the indicated milliseconds pass. @example `1000`
+
+Example of modal window with individual parameters:
+
+````javascript
+TomloprodModal.openModal("testModal", {
+    bgColor: "#FFFFFF",
+    textColor: "#333333",
+	title: "Hi!",
+    content: "Nothing to say",
+	closeTimer: 1000
+});
+````
+<br>
+
 ### Miscellaneous
 ---
 
 ````javascript
+
+//////////// Create new modal with indicated params (without HTML)
+TomloprodModal.create({
+    bgColor: "#FFFFFF",
+    textColor: "#333333",
+	title: "Hi!",
+    content: "Nothing to say",
+	closeTimer: 1000
+});
+
 //////////// Stop operation of Tomloprod Modal.
 TomloprodModal.stop();
 
